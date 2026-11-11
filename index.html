@@ -205,7 +205,7 @@ function render(){
  const bl=Object.keys(b.bas).filter(k=>b.bas[k]).map(k=>`${b.bas[k]} ${BN[k]}`).join(', ');
  let h=`<div class="card cmd"><div class="imgs"><img src="${art(c.id)}" alt="${esc(c.n)}">${/transform|modal_dfc|reversible/.test(c.ly||'')?`<img src="${art(c.id).replace('/front/','/back/')}" alt="">`:''}</div><div class="info"><h2>${esc(c.n)} <span style="font-size:18px">${sym(c.mc)}</span></h2>
  <p class="msn">${esc(c.t)} · ${esc(c.r||'')} · ${esc(c.s||'')}</p><p>${sym(esc(c.o)).replace(/\n/g,'<br>')}</p>${c.pw!=null?`<p><b>${esc(c.pw)}/${esc(c.tg)}</b></p>`:''}
- <p class="msn">Color identity: ${c.ci.length?c.ci.map(k=>sym('{'+k+'}')).join(' '):'Colorless'} · Mana value ${c.cmc} · EDHREC rank ${c.rk?'#'+c.rk:'n/a'} · ${c.lg?'Legal as commander':'Check legality'}${OWN[lc(c.n)]?' · <b>In your collection</b>':''}</p>
+ <p class="msn">Color identity: ${c.ci.length?c.ci.map(k=>sym('{'+k+'}')).join(' '):'Colorless'} · Mana value ${c.cmc} · ${c.lg?'Legal as commander':'Check legality'}${OWN[lc(c.n)]?' · <b>In your collection</b>':''}</p>
  <h3 style="margin-top:18px">Build around</h3><p class="msn">Pick the strategies you want. ★ marks what the commander's text suggests; add or remove any. With nothing selected you get a general good-stuff build.</p>
  <div class="tgs">${keys.map(k=>`<button type="button" class="tgl${ST.sel.includes(k)?' on':''}" data-th="${esc(k)}">${esc(lab(k))}${recs.has(k)?' ★':''}</button>`).join('')}</div></div></div>`;
  h+=`<div class="card"><h3>Deck summary</h3><div class="sum"><div><div class="stats"><div class="stat"><b>${$$(tot)}</b><span>Total price (${CUR})</span></div><div class="stat"><b>100</b><span>Cards</span></div><div class="stat"><b>${b.avg.toFixed(2)}</b><span>Avg mana value</span></div></div>
